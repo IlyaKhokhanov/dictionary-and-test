@@ -3,12 +3,12 @@ import Button from "../buttons/Button";
 import "./Header.scss";
 
 export default function Header(props) {
-  const { title } = props;
+  const { classForBtn, children } = props;
 
   return (
     <header className='header'>
-      <p className='header-title'>{title}</p>
-      <Button classes='header-btn'>Back to select</Button>
+      <p className='header-title'>{children}</p>
+      <Button classForBtn={classForBtn}>Back to select</Button>
     </header>
   );
 }

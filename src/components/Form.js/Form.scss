@@ -1,4 +1,5 @@
 .form {
+  width: 200px;
   display: flex;
   flex-direction: column;
   font-size: 20px;
@@ -16,15 +17,19 @@
     flex-direction: column;
   }
 
-  /* &-module--wrapper active {
-    display: flex;
-  } */
-
   &-module {
     margin-left: 20px;
   }
 
-  &-btn:not(:last-child) {
-    margin-right: 15px;
+  &-btn--wrapper {
+    margin-top: 20px;
+  }
+
+  &-btn {
+    padding: 3px 13px;
+
+    &:not(:last-child) {
+      margin-left: 0;
+    }
   }
 }

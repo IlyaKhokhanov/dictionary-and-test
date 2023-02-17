@@ -6,7 +6,7 @@ import "./Home.scss";
 function Home() {
   return (
     <>
-      <Header title='Dictionary and tests' />
+      <Header classForBtn='home-btn'>Dictionary and tests</Header>
       <div className='home'>
         <h1 className='home-title'>Select a schoolbook and module</h1>
         <Form />

@@ -1,8 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Button.scss";
 
 export default function Button(props) {
-  const { classes, children } = props;
+  const { classForBtn, to, children } = props;
 
-  return <button className={`btn ${classes}`}>{children}</button>;
+  return (
+    <Link className={`btn ${classForBtn}`} to={to || "/"}>
+      {children}
+    </Link>
+  );
 }
