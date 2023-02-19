@@ -7,15 +7,15 @@
   font-size: 20px;
   cursor: pointer;
   background: inherit;
-  color: rgb(40, 40, 40);
-  border: 1px solid rgb(40, 40, 40);
+  color: rgb(50, 50, 50);
+  border: 1px solid rgb(50, 50, 50);
 
   &:hover {
     opacity: 0.6;
   }
 
   &:active {
-    background: rgb(40, 40, 40);
-    color: rgb(233, 233, 233);
+    background: rgb(50, 50, 50);
+    color: rgb(240, 240, 240);
   }
 }

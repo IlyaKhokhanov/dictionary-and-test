@@ -1,5 +1,4 @@
 export default function FormReducer(state, e) {
-  console.log(state);
   if (e.target.classList.contains("form-school-checkbox")) {
     if (e.target.checked) {
       return [...state, { schoolbook: e.target.id, modules: [] }];
