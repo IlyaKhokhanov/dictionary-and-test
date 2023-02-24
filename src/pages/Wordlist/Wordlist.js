@@ -1,12 +1,10 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+import { Header } from "../../components/Header";
 
-function Wordlist() {
+export function Wordlist() {
   return (
     <>
       <Header className='wordlist'>Wordlist</Header>
     </>
   );
 }
-
-export default Wordlist;

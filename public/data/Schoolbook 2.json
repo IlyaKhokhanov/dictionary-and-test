@@ -1,0 +1,52 @@
+{
+  "Module 1": [
+    {
+      "id": 1,
+      "word": "blue",
+      "transcription": "/blu:/",
+      "translation": "голубой, синий"
+    },
+    {
+      "id": 2,
+      "word": "colour",
+      "transcription": "/kʌlǝ/",
+      "translation": "цвет"
+    },
+    {
+      "id": 3,
+      "word": "family",
+      "transcription": "/fæmili/",
+      "translation": "семья"
+    },
+    {
+      "id": 4,
+      "word": "green",
+      "transcription": "/gri:n/",
+      "translation": "зелёный"
+    },
+    {
+      "id": 5,
+      "word": "meet",
+      "transcription": "/mi:t/",
+      "translation": "встречаться, знакомиться"
+    },
+    {
+      "id": 6,
+      "word": "red",
+      "transcription": "/red/",
+      "translation": "красный"
+    },
+    {
+      "id": 7,
+      "word": "white",
+      "transcription": "/wait/",
+      "translation": "белый"
+    },
+    {
+      "id": 8,
+      "word": "yellow",
+      "transcription": "/jelou/",
+      "translation": "жёлтый"
+    }
+  ]
+}

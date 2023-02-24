@@ -1,12 +1,10 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+import { Header } from "../../components/Header";
 
-function Test() {
+export function Test() {
   return (
     <>
       <Header className='test'>Test</Header>
     </>
   );
 }
-
-export default Test;

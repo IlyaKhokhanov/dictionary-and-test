@@ -1,12 +1,12 @@
 import React from "react";
-import Form from "../../components/Form.js/Form";
-import Header from "../../components/Header/Header";
+import { Form } from "../../components/Form";
+import { Header } from "../../components/Header";
 import "./Home.scss";
 
-function Home() {
+export function Home() {
   return (
     <>
-      <Header classForBtn='home-btn'>Dictionary and tests</Header>
+      <Header buttonClass='home-btn'>Dictionary and tests</Header>
       <div className='home'>
         <h1 className='home-title'>Select a schoolbook and module</h1>
         <Form />
@@ -14,5 +14,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

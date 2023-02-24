@@ -1,20 +1,19 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Home from "./pages/Home/Home";
-import Test from "./pages/Test/Test";
-import Wordlist from "./pages/Wordlist/Wordlist";
-import { CheckboxContext } from "./state/CheckboxContext";
-import FormReducer from "./state/FormReducer";
+import { Home } from "./pages/Home";
+import { Test } from "./pages/Test";
+import { Wordlist } from "./pages/Wordlist";
+import { selectedModulesContext } from "./state/selectedModulesContext";
 
 function App() {
-  const [state, dispatch] = useReducer(FormReducer, []);
+  const [checkedModules, setCheckedModules] = useState({});
 
   return (
-    <CheckboxContext.Provider
+    <selectedModulesContext.Provider
       value={{
-        state,
-        dispatch,
+        checkedModules,
+        setCheckedModules,
       }}>
       <BrowserRouter>
         <div className='App'>
@@ -25,7 +24,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-    </CheckboxContext.Provider>
+    </selectedModulesContext.Provider>
   );
 }
 

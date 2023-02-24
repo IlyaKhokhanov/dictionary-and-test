@@ -1,22 +1,49 @@
-import React, { useContext } from "react";
-import { CheckboxContext } from "../../state/CheckboxContext";
+import React, { useContext, useEffect, useState } from "react";
+import produce from "immer";
+import { selectedModulesContext } from "../../state/selectedModulesContext";
+import { fetchJsonModules } from "../../utils/formUtils";
 
 export default function CheckboxModule(props) {
-  const { modules } = props;
-  const { dispatch } = useContext(CheckboxContext);
-  const listModules = Object.keys(modules);
+  const { schoolbook } = props;
+  const { checkedModules, setCheckedModules } = useContext(
+    selectedModulesContext
+  );
+  const [listModules, setListModules] = useState([]);
+
+  useEffect(() => {
+    fetchJsonModules(schoolbook, setListModules);
+  }, []);
+
+  function modulesCheckboxHandler(e) {
+    if (!checkedModules[schoolbook].includes(e.target.id)) {
+      setCheckedModules(
+        produce((draft) => {
+          draft[schoolbook].push(e.target.id);
+        })
+      );
+    } else if (checkedModules[schoolbook].includes(e.target.id)) {
+      setCheckedModules(
+        produce((draft) => {
+          draft[schoolbook] = draft[schoolbook].filter(
+            (module) => module !== e.target.id
+          );
+        })
+      );
+    }
+  }
 
   return (
     <div className='form-module--wrapper'>
-      {listModules.map((key) => (
-        <label key={key} className='form-module'>
+      {listModules.map((module) => (
+        <label key={module} className='form-module'>
           <input
             className='form-module-checkbox'
             type='checkbox'
-            id={key}
-            onChange={(e) => dispatch(e)}
+            id={module}
+            defaultChecked={checkedModules[schoolbook].includes(module)}
+            onClick={modulesCheckboxHandler}
           />{" "}
-          {key}
+          {module}
         </label>
       ))}
     </div>
