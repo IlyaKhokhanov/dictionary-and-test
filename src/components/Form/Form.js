@@ -1,9 +1,9 @@
 import React, { lazy, Suspense, useContext, useMemo } from "react";
-import { Button } from "../Button";
+import { Loader } from "../Loader";
+import { MainButton } from "../buttons/MainButton";
 import "./Form.scss";
 import { selectedModulesContext } from "../../state/selectedModulesContext";
 import { renderCheckboxSchoolbooks } from "../../utils/formUtils";
-import { Loader } from "../Loader";
 const CheckboxModule = lazy(() => import("../CheckboxModule/CheckboxModule"));
 
 export function Form() {
@@ -47,12 +47,12 @@ export function Form() {
       ))}
       {!!Object.keys(checkedModules).length && (
         <div className='form-btn--wrapper'>
-          <Button buttonClass='form-btn' to='/wordlist'>
+          <MainButton buttonClass='form-btn' to='/wordlist'>
             Wordlist
-          </Button>
-          <Button buttonClass='form-btn' to='/test'>
+          </MainButton>
+          <MainButton buttonClass='form-btn' to='/test'>
             Test
-          </Button>
+          </MainButton>
         </div>
       )}
     </div>

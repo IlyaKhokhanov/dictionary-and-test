@@ -1,18 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo } from "react";
 import produce from "immer";
 import { selectedModulesContext } from "../../state/selectedModulesContext";
-import { fetchJsonModules } from "../../utils/formUtils";
+import { downloadModules } from "../../utils/formUtils";
 
 export default function CheckboxModule(props) {
   const { schoolbook } = props;
-  const { checkedModules, setCheckedModules } = useContext(
-    selectedModulesContext
-  );
-  const [listModules, setListModules] = useState([]);
+  const {
+    checkedModules,
+    setCheckedModules,
+    downloadedSelectedSchoolbook,
+    setDownloadedSelectedSchoolbook,
+  } = useContext(selectedModulesContext);
 
   useEffect(() => {
-    fetchJsonModules(schoolbook, setListModules);
+    downloadModules(schoolbook, setDownloadedSelectedSchoolbook);
   }, []);
+
+  const memoizedListModules = useMemo(
+    () => Object.keys(downloadedSelectedSchoolbook),
+    [downloadedSelectedSchoolbook]
+  );
 
   function modulesCheckboxHandler(e) {
     if (!checkedModules[schoolbook].includes(e.target.id)) {
@@ -34,7 +41,7 @@ export default function CheckboxModule(props) {
 
   return (
     <div className='form-module--wrapper'>
-      {listModules.map((module) => (
+      {memoizedListModules.map((module) => (
         <label key={module} className='form-module'>
           <input
             className='form-module-checkbox'
