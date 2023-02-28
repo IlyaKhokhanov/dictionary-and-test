@@ -8,12 +8,16 @@ import { selectedModulesContext } from "./state/selectedModulesContext";
 
 function App() {
   const [checkedModules, setCheckedModules] = useState({});
+  const [downloadedSelectedSchoolbook, setDownloadedSelectedSchoolbook] =
+    useState({});
 
   return (
     <selectedModulesContext.Provider
       value={{
         checkedModules,
         setCheckedModules,
+        downloadedSelectedSchoolbook,
+        setDownloadedSelectedSchoolbook,
       }}>
       <BrowserRouter>
         <div className='App'>
