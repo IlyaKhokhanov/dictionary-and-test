@@ -9,15 +9,25 @@
   font-size: 25px;
   cursor: pointer;
   background: inherit;
+<<<<<<< HEAD:src/components/buttons/MainButton/MainButton.scss
   color: $mainBlackColor;
   border: 1px solid $mainBlackColor;
+=======
+  color: rgb(50, 50, 50);
+  border: 1px solid rgb(50, 50, 50);
+>>>>>>> 84552f0a5f087fe6eea15911cc12cc3a02ef97e4:src/components/buttons/Button.scss
 
   &:hover {
     opacity: 0.6;
   }
 
   &:active {
+<<<<<<< HEAD:src/components/buttons/MainButton/MainButton.scss
     background: $mainBlackColor;
     color: $mainGreyColor;
+=======
+    background: rgb(50, 50, 50);
+    color: rgb(240, 240, 240);
+>>>>>>> 84552f0a5f087fe6eea15911cc12cc3a02ef97e4:src/components/buttons/Button.scss
   }
 }
