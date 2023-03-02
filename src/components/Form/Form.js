@@ -1,31 +1,41 @@
-import React, { lazy, Suspense, useContext, useMemo } from "react";
+import React, { lazy, Suspense, useCallback, useMemo } from "react";
+import produce from "immer";
 import { Button } from "../Button";
-import "./Form.scss";
-import { selectedModulesContext } from "../../state/selectedModulesContext";
-import { renderCheckboxSchoolbooks } from "../../utils/formUtils";
 import { Loader } from "../Loader";
+import "./Form.scss";
+import { SelectedModulesContext } from "../../state/SelectedModulesContext";
+import { renderCheckboxSchoolbooks } from "../../utils/formUtils";
+import { useRequiredContext } from "../../hooks/useRequiredContext";
 const CheckboxModule = lazy(() => import("../CheckboxModule/CheckboxModule"));
 
 export function Form() {
-  const { checkedModules, setCheckedModules } = useContext(
-    selectedModulesContext
+  const { checkedModules, setCheckedModules } = useRequiredContext(
+    SelectedModulesContext
   );
 
   const totalSchoolbooks = 2;
-  const memoizedRenderSchoolbooks = useMemo(
+  const memoizedNamesSchoolbooks = useMemo(
     () => renderCheckboxSchoolbooks(totalSchoolbooks),
     [totalSchoolbooks]
   );
 
-  function schoolbookCheckboxHandler(e) {
-    setCheckedModules({
-      ...{ [e.target.id]: [] },
-    });
-  }
+  const schoolbookCheckboxHandler = useCallback(
+    (e) => {
+      setCheckedModules((prevSchoolbook) =>
+        produce(prevSchoolbook, (draft) => {
+          if (!prevSchoolbook.has(e.target.id)) {
+            draft.clear();
+            draft.set(e.target.id, []);
+          }
+        })
+      );
+    },
+    [checkedModules]
+  );
 
   return (
     <div className='form'>
-      {memoizedRenderSchoolbooks.map((schoolbook) => (
+      {memoizedNamesSchoolbooks.map((schoolbook) => (
         <div key={schoolbook}>
           <label className='form-schoolbook'>
             <input
@@ -33,19 +43,19 @@ export function Form() {
               type='radio'
               name='schoolbook'
               id={schoolbook}
-              defaultChecked={checkedModules[schoolbook]}
+              defaultChecked={checkedModules.has(schoolbook)}
               onClick={schoolbookCheckboxHandler}
             />{" "}
             {schoolbook}
           </label>
-          {checkedModules[schoolbook] && (
+          {checkedModules.has(schoolbook) && (
             <Suspense fallback={<Loader />}>
               <CheckboxModule schoolbook={schoolbook} />
             </Suspense>
           )}
         </div>
       ))}
-      {!!Object.keys(checkedModules).length && (
+      {!!checkedModules.size && (
         <div className='form-btn--wrapper'>
           <Button buttonClass='form-btn' to='/wordlist'>
             Wordlist

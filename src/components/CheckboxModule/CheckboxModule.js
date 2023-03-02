@@ -1,46 +1,57 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import produce from "immer";
-import { selectedModulesContext } from "../../state/selectedModulesContext";
-import { fetchJsonModules } from "../../utils/formUtils";
+import { SelectedModulesContext } from "../../state/SelectedModulesContext";
+import { useRequiredContext } from "../../hooks/useRequiredContext";
+import { downloadModules } from "../../utils/formUtils";
 
 export default function CheckboxModule(props) {
   const { schoolbook } = props;
-  const { checkedModules, setCheckedModules } = useContext(
-    selectedModulesContext
-  );
-  const [listModules, setListModules] = useState([]);
+  const {
+    checkedModules,
+    setCheckedModules,
+    downloadedSelectedSchoolbook,
+    setDownloadedSelectedSchoolbook,
+  } = useRequiredContext(SelectedModulesContext);
 
   useEffect(() => {
-    fetchJsonModules(schoolbook, setListModules);
+    downloadModules(schoolbook, setDownloadedSelectedSchoolbook);
   }, []);
 
-  function modulesCheckboxHandler(e) {
-    if (!checkedModules[schoolbook].includes(e.target.id)) {
-      setCheckedModules(
-        produce((draft) => {
-          draft[schoolbook].push(e.target.id);
+  const memoizedListModules = useMemo(
+    () => Object.keys(downloadedSelectedSchoolbook),
+    [downloadedSelectedSchoolbook]
+  );
+
+  const modulesCheckboxHandler = useCallback(
+    (e) => {
+      setCheckedModules((prevModules) =>
+        produce(prevModules, (draft) => {
+          !prevModules.get(schoolbook).includes(e.target.id)
+            ? draft.set(schoolbook, [
+                ...prevModules.get(schoolbook),
+                e.target.id,
+              ])
+            : draft.set(
+                schoolbook,
+                prevModules
+                  .get(schoolbook)
+                  .filter((module) => module !== e.target.id)
+              );
         })
       );
-    } else if (checkedModules[schoolbook].includes(e.target.id)) {
-      setCheckedModules(
-        produce((draft) => {
-          draft[schoolbook] = draft[schoolbook].filter(
-            (module) => module !== e.target.id
-          );
-        })
-      );
-    }
-  }
+    },
+    [checkedModules]
+  );
 
   return (
     <div className='form-module--wrapper'>
-      {listModules.map((module) => (
+      {memoizedListModules.map((module) => (
         <label key={module} className='form-module'>
           <input
             className='form-module-checkbox'
             type='checkbox'
             id={module}
-            defaultChecked={checkedModules[schoolbook].includes(module)}
+            defaultChecked={checkedModules.get(schoolbook).includes(module)}
             onClick={modulesCheckboxHandler}
           />{" "}
           {module}

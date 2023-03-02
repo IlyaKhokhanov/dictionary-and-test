@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { enableMapSet } from "immer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Home } from "./pages/Home";
 import { Test } from "./pages/Test";
 import { Wordlist } from "./pages/Wordlist";
-import { selectedModulesContext } from "./state/selectedModulesContext";
+import { SelectedModulesContext } from "./state/SelectedModulesContext";
 
 function App() {
-  const [checkedModules, setCheckedModules] = useState({});
+  useEffect(() => enableMapSet(), []);
+  const [checkedModules, setCheckedModules] = useState(new Map());
+  const [downloadedSelectedSchoolbook, setDownloadedSelectedSchoolbook] =
+    useState({});
 
   return (
-    <selectedModulesContext.Provider
+    <SelectedModulesContext.Provider
       value={{
         checkedModules,
         setCheckedModules,
+        downloadedSelectedSchoolbook,
+        setDownloadedSelectedSchoolbook,
       }}>
       <BrowserRouter>
         <div className='App'>
@@ -24,7 +30,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-    </selectedModulesContext.Provider>
+    </SelectedModulesContext.Provider>
   );
 }
 

@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const selectedModulesContext = createContext();
+export const SelectedModulesContext = createContext();

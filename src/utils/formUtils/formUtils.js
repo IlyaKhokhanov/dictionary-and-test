@@ -6,12 +6,12 @@ export function renderCheckboxSchoolbooks(totalSchoolbooks) {
   return array;
 }
 
-export async function fetchJsonModules(schoolbook, seter) {
+export async function downloadModules(schoolbook, setter) {
   try {
     const response = await fetch(`../data/${schoolbook}.json`);
     const data = await response.json();
-    seter(Object.keys(data));
+    setter(data);
   } catch (e) {
-    console.error(e);
+    alert("Unfortunately an error has occurred");
   }
 }
