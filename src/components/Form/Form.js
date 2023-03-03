@@ -24,7 +24,7 @@ export function Form() {
       setCheckedModules((prevSchoolbook) =>
         produce(prevSchoolbook, (draft) => {
           if (!prevSchoolbook.has(e.target.id)) {
-            draft.clear();
+            draft.clear(); // when choosing other schoolbook, previous value clear, because we can choose only one schoolbook
             draft.set(e.target.id, []);
           }
         })

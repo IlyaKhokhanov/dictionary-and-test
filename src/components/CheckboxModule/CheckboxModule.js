@@ -26,17 +26,19 @@ export default function CheckboxModule(props) {
     (e) => {
       setCheckedModules((prevModules) =>
         produce(prevModules, (draft) => {
-          !prevModules.get(schoolbook).includes(e.target.id)
-            ? draft.set(schoolbook, [
-                ...prevModules.get(schoolbook),
-                e.target.id,
-              ])
-            : draft.set(
-                schoolbook,
-                prevModules
-                  .get(schoolbook)
-                  .filter((module) => module !== e.target.id)
-              );
+          if (!prevModules.get(schoolbook).includes(e.target.id)) {
+            draft.set(schoolbook, [
+              ...prevModules.get(schoolbook),
+              e.target.id,
+            ]);
+          } else {
+            draft.set(
+              schoolbook,
+              prevModules
+                .get(schoolbook)
+                .filter((module) => module !== e.target.id)
+            );
+          }
         })
       );
     },
@@ -51,7 +53,7 @@ export default function CheckboxModule(props) {
             className='form-module-checkbox'
             type='checkbox'
             id={module}
-            defaultChecked={checkedModules.get(schoolbook).includes(module)}
+            defaultChecked={!!checkedModules.get(schoolbook)?.includes(module)}
             onClick={modulesCheckboxHandler}
           />{" "}
           {module}
