@@ -1,0 +1,43 @@
+.form {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+
+  div:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  &-school-checkbox {
+    cursor: pointer;
+  }
+
+  &-module {
+    margin-left: 20px;
+
+    &--wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-checkbox {
+      cursor: pointer;
+    }
+  }
+
+  &-btn--wrapper {
+    margin-top: 15px;
+  }
+
+  &-btn {
+    padding: 2px 14px;
+
+    &:not(:last-child) {
+      margin-left: 0;
+    }
+  }
+}

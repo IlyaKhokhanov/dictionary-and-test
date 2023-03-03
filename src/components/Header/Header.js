@@ -1,13 +1,14 @@
 import React from "react";
-import "./Header.scss"
+import { Button } from "../Button";
+import "./Header.scss";
 
-export default function Header(props) {
-  const {title} = props
+export function Header(props) {
+  const { buttonClass, children } = props;
 
   return (
-    <header className="header">
-      <p className="header-title">{title}</p>
-      <button className="header-btn">Back</button>
+    <header className='header'>
+      <p className='header-title'>{children}</p>
+      <Button buttonClass={buttonClass}>Back to select</Button>
     </header>
-  )
+  );
 }

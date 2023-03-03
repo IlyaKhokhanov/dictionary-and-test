@@ -6,11 +6,10 @@
 
   &-title {
     font-size: 35px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
   }
 
-  &-form {
-    display: flex;
-    flex-direction: column;
+  &-btn {
+    display: none;
   }
 }

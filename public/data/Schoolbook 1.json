@@ -1,5 +1,5 @@
 {
-  "Module1": [
+  "Module 1": [
     {
       "id": 1,
       "word": "and",
@@ -71,6 +71,68 @@
       "word": "What's your name?",
       "transcription": "/wots jo: neim/",
       "translation": "Как тебя зовут?"
+    }
+  ],
+  "Module 2": [
+    {
+      "id": 1,
+      "word": "brother",
+      "transcription": "/brʌðə/",
+      "translation": "брат"
+    },
+    {
+      "id": 2,
+      "word": "children",
+      "transcription": "/ˈtʃɪldrən/",
+      "translation": "дети"
+    },
+    {
+      "id": 3,
+      "word": "daddy",
+      "transcription": "/dædi/",
+      "translation": "папа"
+    },
+    {
+      "id": 4,
+      "word": "friend",
+      "transcription": "/frend/",
+      "translation": "друг"
+    },
+    {
+      "id": 5,
+      "word": "grandma",
+      "transcription": "/grænma/",
+      "translation": "бабушка"
+    },
+    {
+      "id": 6,
+      "word": "grandpa",
+      "transcription": "/grænpa:/",
+      "translation": "дедушка"
+    },
+    {
+      "id": 7,
+      "word": "mummy",
+      "transcription": "/mʌmi/",
+      "translation": "мама"
+    },
+    {
+      "id": 8,
+      "word": "sister",
+      "transcription": "/sistǝ/",
+      "translation": "сестра"
+    },
+    {
+      "id": 9,
+      "word": "sit down",
+      "transcription": "/sit daun/",
+      "translation": "садись, садитесь"
+    },
+    {
+      "id": 10,
+      "word": "stand up",
+      "transcription": "/stænd ʌp/",
+      "translation": "встань(те)"
     }
   ]
 }
