@@ -1,15 +1,16 @@
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import { IconButton } from "../buttons/IconButton";
-import { selectedModulesContext } from "../../state/selectedModulesContext";
+import { SelectedModulesContext } from "../../state/SelectedModulesContext";
 import { capitaliseWord } from "../../utils/capitaliseWord";
 import { filteredWords } from "../../utils/filterWords";
 import { speakWord } from "../../utils/speakWord";
+import { useRequiredContext } from "../../hooks/useRequiredContext";
 
 export function WordlistTableRow(props) {
   const { wordsVisible, translateVisible } = props;
 
-  const { checkedModules, downloadedSelectedSchoolbook } = useContext(
-    selectedModulesContext
+  const { checkedModules, downloadedSelectedSchoolbook } = useRequiredContext(
+    SelectedModulesContext
   );
 
   const memoData = useMemo(
@@ -17,9 +18,9 @@ export function WordlistTableRow(props) {
     [checkedModules, downloadedSelectedSchoolbook]
   );
 
-  function speakHandler(e) {
+  const speakHandler = (e) => {
     speakWord(e.target.name);
-  }
+  };
 
   return (
     <>
