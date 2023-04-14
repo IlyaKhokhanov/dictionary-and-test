@@ -1,11 +1,21 @@
-import React, { useState } from "react";
-import "./WordlistTable.scss";
+import React, { useCallback, useState } from "react";
 import { WordlistTableRow } from "../WordlistTableRow";
 import { IconButton } from "../buttons/IconButton";
+import "./WordlistTable.scss";
 
 export function WordlistTable() {
   const [wordsVisible, setWordsVisible] = useState(false);
   const [translateVisible, setTranslateVisible] = useState(false);
+
+  const handlerWordsVisible = useCallback(
+    () => setWordsVisible((prevValue) => !prevValue),
+    [wordsVisible]
+  );
+
+  const handlerTranslateVisible = useCallback(
+    () => setTranslateVisible((prevValue) => !prevValue),
+    [translateVisible]
+  );
 
   return (
     <table className='table'>
@@ -15,7 +25,7 @@ export function WordlistTable() {
           <th className='table-cell'>
             Word
             <IconButton
-              handler={() => setWordsVisible((prevValue) => !prevValue)}
+              handler={handlerWordsVisible}
               image={`../../img/${
                 wordsVisible ? "invisibleEye.svg" : "visibleEye.svg"
               }`}
@@ -27,7 +37,7 @@ export function WordlistTable() {
           <th className='table-cell'>
             Translate
             <IconButton
-              handler={() => setTranslateVisible((prevValue) => !prevValue)}
+              handler={handlerTranslateVisible}
               image={`../../img/${
                 translateVisible ? "invisibleEye.svg" : "visibleEye.svg"
               }`}

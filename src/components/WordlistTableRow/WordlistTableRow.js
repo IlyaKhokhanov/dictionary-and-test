@@ -3,8 +3,8 @@ import { IconButton } from "../buttons/IconButton";
 import { SelectedModulesContext } from "../../state/SelectedModulesContext";
 import { capitaliseWord } from "../../utils/capitaliseWord";
 import { filteredWords } from "../../utils/filterWords";
-import { speakWord } from "../../utils/speakWord";
 import { useRequiredContext } from "../../hooks/useRequiredContext";
+import { speakHandler } from "../../utils/speakHandler";
 
 export function WordlistTableRow(props) {
   const { wordsVisible, translateVisible } = props;
@@ -17,10 +17,6 @@ export function WordlistTableRow(props) {
     () => filteredWords(checkedModules, downloadedSelectedSchoolbook),
     [checkedModules, downloadedSelectedSchoolbook]
   );
-
-  const speakHandler = (e) => {
-    speakWord(e.target.name);
-  };
 
   return (
     <>

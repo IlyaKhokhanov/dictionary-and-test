@@ -8,11 +8,7 @@ export function IconButton(props) {
       className='icon-button'
       onClick={handler}
       disabled={prop.disabledBtn ? prop.disabledBtn : false}>
-      <img
-        src={image}
-        alt={descriptionImg}
-        name={prop.spokenWord ? prop.spokenWord : ""}
-      />
+      <img src={image} alt={descriptionImg} name={prop.spokenWord ?? ""} />
     </button>
   );
 }
