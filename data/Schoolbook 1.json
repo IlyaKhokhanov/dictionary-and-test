@@ -1,0 +1,138 @@
+{
+  "Module 1": [
+    {
+      "id": 1,
+      "word": "and",
+      "transcription": "/ǝnd/",
+      "translation": "и"
+    },
+    {
+      "id": 2,
+      "word": "Fine, thanks!",
+      "transcription": "/faɪn 0ænks/",
+      "translation": "Спасибо, хорошо!"
+    },
+    {
+      "id": 3,
+      "word": "go",
+      "transcription": "/ɡəʊ/",
+      "translation": "идти, ходить"
+    },
+    {
+      "id": 4,
+      "word": "goodbye",
+      "transcription": "/ɡʊdˈbaɪ/",
+      "translation": "до свидания"
+    },
+    {
+      "id": 5,
+      "word": "hello",
+      "transcription": "/həˈləʊ/",
+      "translation": "здравствуй(те)"
+    },
+    {
+      "id": 6,
+      "word": "How are you?",
+      "transcription": "/haʊ a: ju/",
+      "translation": "Как дела?"
+    },
+    {
+      "id": 7,
+      "word": "Let's",
+      "transcription": "/lets/",
+      "translation": "давай(те)"
+    },
+    {
+      "id": 8,
+      "word": "I",
+      "transcription": "/ai/",
+      "translation": "я"
+    },
+    {
+      "id": 9,
+      "word": "you",
+      "transcription": "/ju:/",
+      "translation": "ты, вы"
+    },
+    {
+      "id": 10,
+      "word": "me",
+      "transcription": "/mi/",
+      "translation": "меня"
+    },
+    {
+      "id": 11,
+      "word": "my",
+      "transcription": "/mai/",
+      "translation": "мой"
+    },
+    {
+      "id": 12,
+      "word": "What's your name?",
+      "transcription": "/wots jo: neim/",
+      "translation": "Как тебя зовут?"
+    }
+  ],
+  "Module 2": [
+    {
+      "id": 1,
+      "word": "brother",
+      "transcription": "/brʌðə/",
+      "translation": "брат"
+    },
+    {
+      "id": 2,
+      "word": "children",
+      "transcription": "/ˈtʃɪldrən/",
+      "translation": "дети"
+    },
+    {
+      "id": 3,
+      "word": "daddy",
+      "transcription": "/dædi/",
+      "translation": "папа"
+    },
+    {
+      "id": 4,
+      "word": "friend",
+      "transcription": "/frend/",
+      "translation": "друг"
+    },
+    {
+      "id": 5,
+      "word": "grandma",
+      "transcription": "/grænma/",
+      "translation": "бабушка"
+    },
+    {
+      "id": 6,
+      "word": "grandpa",
+      "transcription": "/grænpa:/",
+      "translation": "дедушка"
+    },
+    {
+      "id": 7,
+      "word": "mummy",
+      "transcription": "/mʌmi/",
+      "translation": "мама"
+    },
+    {
+      "id": 8,
+      "word": "sister",
+      "transcription": "/sistǝ/",
+      "translation": "сестра"
+    },
+    {
+      "id": 9,
+      "word": "sit down",
+      "transcription": "/sit daun/",
+      "translation": "садись, садитесь"
+    },
+    {
+      "id": 10,
+      "word": "stand up",
+      "transcription": "/stænd ʌp/",
+      "translation": "встань(те)"
+    }
+  ]
+}
