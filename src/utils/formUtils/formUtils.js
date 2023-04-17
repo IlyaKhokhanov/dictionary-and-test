@@ -8,7 +8,7 @@ export function renderCheckboxSchoolbooks(totalSchoolbooks) {
 
 export async function downloadModules(schoolbook, setter) {
   try {
-    const response = await fetch(`../data/${schoolbook}.json`);
+    const response = await fetch(`./data/${schoolbook}.json`);
     const data = await response.json();
     setter(data);
   } catch (e) {

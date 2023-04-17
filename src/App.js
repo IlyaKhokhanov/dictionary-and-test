@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { enableMapSet } from "immer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Home } from "./pages/Home";
 import { Test } from "./pages/Test";
@@ -21,7 +21,8 @@ function App() {
         downloadedSelectedSchoolbook,
         setDownloadedSelectedSchoolbook,
       }}>
-      <BrowserRouter>
+      <HashRouter>
+        {/* <BrowserRouter> */}
         <div className='App'>
           <Routes>
             <Route path='/' exact element={<Home />} />
@@ -29,7 +30,8 @@ function App() {
             <Route path='/test' element={<Test />} />
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
+      {/* </BrowserRouter> */}
     </SelectedModulesContext.Provider>
   );
 }

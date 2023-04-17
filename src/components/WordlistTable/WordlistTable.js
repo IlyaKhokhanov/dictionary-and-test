@@ -26,7 +26,7 @@ export function WordlistTable() {
             Word
             <IconButton
               handler={handlerWordsVisible}
-              image={`../../img/${
+              image={`./img/${
                 wordsVisible ? "invisibleEye.svg" : "visibleEye.svg"
               }`}
               descriptionImg={wordsVisible ? "show words" : "hide words"}
@@ -38,7 +38,7 @@ export function WordlistTable() {
             Translate
             <IconButton
               handler={handlerTranslateVisible}
-              image={`../../img/${
+              image={`./img/${
                 translateVisible ? "invisibleEye.svg" : "visibleEye.svg"
               }`}
               descriptionImg={

@@ -27,7 +27,7 @@ export function WordlistTableRow(props) {
             {capitaliseWord(wordObject.word)}
             <IconButton
               handler={speakHandler}
-              image={"../../img/speaker.svg"}
+              image={"./img/speaker.svg"}
               descriptionImg={"speak word"}
               spokenWord={wordObject.word}
             />
