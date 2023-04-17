@@ -26,8 +26,8 @@ function App() {
         <div className='App'>
           <Routes>
             <Route path='/' exact element={<Home />} />
-            <Route path='/wordlist' element={<Wordlist />} />
-            <Route path='/test' element={<Test />} />
+            <Route path='wordlist' element={<Wordlist />} />
+            <Route path='test' element={<Test />} />
           </Routes>
         </div>
       </HashRouter>
